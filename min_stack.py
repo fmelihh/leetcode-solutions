@@ -1,5 +1,4 @@
-# [not finish yet]
-# Problem url: https://leetcode.com/problems/min-stack
+# Problem url: https://leetcode.com/problems/min-stack, Medium
 
 
 class MinStack:
