@@ -6,7 +6,7 @@ class Solution:
         end_pointer = 0
         start_pointer = 0
         cum_index = 0
-        while start_pointer < len(s) and s[start_pointer] != '|':
+        while start_pointer < len(s) and s[start_pointer] != "|":
             if s[start_pointer].isalnum():
                 for i in range(start_pointer, len(s)):
                     if s[i].isalnum():
@@ -17,8 +17,13 @@ class Solution:
                 if end_pointer < start_pointer:
                     break
 
-                new_start_pointer = len(s[start_pointer : end_pointer+1]) + 1
-                s = s[start_pointer : end_pointer+1] + "|" + s[0:start_pointer] + s[end_pointer + 1:]
+                new_start_pointer = len(s[start_pointer : end_pointer + 1]) + 1
+                s = (
+                    s[start_pointer : end_pointer + 1]
+                    + "|"
+                    + s[0:start_pointer]
+                    + s[end_pointer + 1 :]
+                )
 
                 end_pointer = 0
                 cum_index += new_start_pointer
