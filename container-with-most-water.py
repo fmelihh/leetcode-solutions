@@ -1,30 +1,25 @@
-# Not finish yet
 # Problem Url: https://leetcode.com/problems/container-with-most-water/description/?envType=problem-list-v2&envId=array, Medium
 from typing import List
 
 
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        if len(height) == 0:
+        if len(height) in (0, 1):
             return 0
 
-        first, second = 0, 0
-        area = 0
-        areas = []
-        for i in range(1, len(height)):
-            if height[i] < height[first]:
-                if first > second:
-                    continue
+        max_area = 0
+        start, end = 0, len(height) - 1
+        while start < end:
+            max_area = max(max_area, (min(height[start], height[end]) * (end - start)))
 
-                new_area = (i - first) * (i - 1)
-                if new_area > area:
-                    area = new_area
-                    first = i
+            if height[start] < height[end]:
+                start += 1
             else:
-                first = i
-                second = 0
+                end -= 1
 
-        return area
+        return max_area
+
+
 
 
 if __name__ == "__main__":
