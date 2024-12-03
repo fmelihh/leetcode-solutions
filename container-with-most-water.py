@@ -20,8 +20,6 @@ class Solution:
         return max_area
 
 
-
-
 if __name__ == "__main__":
     s = Solution()
     s.maxArea(height=[1, 8, 6, 2, 5, 4, 8, 3, 7])  # 49
